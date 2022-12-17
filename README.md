@@ -1,4 +1,4 @@
-# templates-vue-front
+# my-project
 
 ## Project setup
 ```

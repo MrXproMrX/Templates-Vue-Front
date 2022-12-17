@@ -1,36 +1,35 @@
 <template>
-    <div class="app-main-layout">
-      
-      <NavbarVue @IsOpenClik="isOpen = !isOpen"></NavbarVue>
-      <SidebarVue :value="isOpen"></SidebarVue>
-  
-      <main class="app-content" :class="{full:!isOpen}">
-        <div class="app-page">
-          <router-view />
-        </div>
-      </main>
-  
-      <div class="fixed-action-btn">
-        <router-link class="btn-floating btn-large" to="/record">
-          <i class="large material-icons">add</i>
-        </router-link>
+  <div class="app-main-layout">
+    
+    <Navbar @click="isOpen = !isOpen" />
+
+    <Sidebar v-model="isOpen" />
+    
+    <main class="app-content" :class="{full: !isOpen}">
+      <div class="app-page">
+        <router-view />
       </div>
+    </main>
+
+    <div class="fixed-action-btn">
+      <router-link class="btn-floating btn-large blue" to="/record">
+        <i class="large material-icons">add</i>
+      </router-link>
     </div>
-</template>  
+  </div>
+</template>
 
 <script>
-import NavbarVue from '@/components/app/Navbar.vue'
-import SidebarVue from '@/components/app/Sidebar.vue'
+import Navbar from '@/components/app/Navbar'
+import Sidebar from '@/components/app/Sidebar'
+
 export default {
-    name: 'main-layout',
-
-    data: () => ({
-        isOpen:true
-    }),
-
-    components:{
-        NavbarVue,
-        SidebarVue
-    },
+  name: 'main-layout',
+  data: () => ({
+    isOpen: true
+  }),
+  components: {
+    Navbar, Sidebar
+  }
 }
 </script>
